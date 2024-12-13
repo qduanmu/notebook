@@ -1,0 +1,679 @@
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ ./build_product ocp4
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- PYTHONPATH: /home/qduanmu/projects/content
+CMake Warning (dev) at CMakeLists.txt:137 (find_package):
+  Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+  are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+  the cmake_policy command to set the policy and suppress this warning.
+
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found PythonInterp: /home/qduanmu/.virtualenvs/cac/bin/python3 (found version "3.13")
+-- 
+-- SCAP Security Guide 0.1.76
+-- (see /home/qduanmu/projects/content/docs/manual/developer_guide.adoc for build instructions)
+-- 
+-- Finding Python Modules:
+-- Found PY_jinja2: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/jinja2
+-- Found PY_yaml: /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/yaml
+-- Found PY_cmakelint: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/cmakelint
+-- Could NOT find PY_github (missing: PY_GITHUB) 
+-- Found PY_json2html: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/json2html
+-- Found PY_lxml: /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/lxml
+-- Found PY_mypy: /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/mypy/__init__.cpython-313-x86_64-linux-gnu.so
+-- Found PY_openpyxl: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/openpyxl
+-- Found PY_pandas: /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/pandas
+-- Could NOT find PY_pcre2 (missing: PY_PCRE2) 
+-- Could NOT find PY_pytest (missing: PY_PYTEST) 
+-- Could NOT find PY_pytest_cov (missing: PY_PYTEST_COV) 
+-- Could NOT find PY_myst_parser (missing: PY_MYST_PARSER) 
+-- Could NOT find PY_sphinx (missing: PY_SPHINX) 
+-- Could NOT find PY_sphinxcontrib.autojinja (missing: PY_SPHINXCONTRIB.AUTOJINJA) 
+-- Could NOT find PY_sphinx_rtd_theme (missing: PY_SPHINX_RTD_THEME) 
+-- Found PY_prometheus_client: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/prometheus_client
+-- Found PY_requests: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/requests
+-- Found PY_trestle: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/trestle
+--  
+-- Summary of Python Tools and Modules:
+-- python: /home/qduanmu/.virtualenvs/cac/bin/python3 (version: 3.13)
+-- python yaml module: /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/yaml
+-- python jinja2 module: /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/jinja2
+-- python compliance-trestle module (optional): /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/trestle
+-- python cmakelint module (optional): /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/cmakelint
+-- python github (PyGitHub) module (optional): 
+-- python json2html module (optional): /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/json2html
+-- python lxml module (optional): /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/lxml
+-- python mypy module (optional): /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/mypy/__init__.cpython-313-x86_64-linux-gnu.so
+-- python myst-parser module (optional): 
+-- python openpyxl module (optional): /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/openpyxl
+-- python pandas module (optional): /home/qduanmu/.virtualenvs/cac/lib64/python3.13/site-packages/pandas
+-- python pcre2 module (optional): 
+-- python prometheus-client module (optional): /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/prometheus_client
+-- python pytest_cov module (optional): 
+-- python pytest module (optional): 
+-- python requests module (optional): /home/qduanmu/.virtualenvs/cac/lib/python3.13/site-packages/requests
+-- python sphinx module (optional): 
+-- python sphinxcontrib.autojinja module (optional): 
+-- python sphinx_rtd_theme module (optional): 
+--  
+-- Summary of System Tools:
+-- oscap: /usr/bin/oscap (version: 1.4.0)
+-- sed: /usr/bin/sed
+-- xsltproc: /usr/bin/xsltproc
+-- xmllint: /usr/bin/xmllint
+-- ansible-lint module (optional): ANSIBLE_LINT_EXECUTABLE-NOTFOUND
+-- ansible-playbook module (optional): /usr/bin/ansible-playbook
+-- BATS framework (optional): BATS_EXECUTABLE-NOTFOUND
+-- grep (optional): /usr/bin/grep
+-- linkchecker (optional): /usr/bin/linkchecker
+-- shellcheck (optional): SHELLCHECK_EXECUTABLE-NOTFOUND
+-- yamllint module (optional): YAMLLINT_EXECUTABLE-NOTFOUND
+--  
+-- CMake Settings:
+-- build type: Release
+-- build directory: /home/qduanmu/projects/content/build
+-- generator: Unix Makefiles
+-- source directory: /home/qduanmu/projects/content
+--  
+-- Build options:
+-- SSG vendor string: ssgproject
+-- Target OVAL version: 5.11
+-- Logging: OFF
+-- Ansible Playbooks: ON
+-- Ansible Playbooks Per Rule: OFF
+-- Bash scripts: ON
+-- Build SCE Content: OFF
+-- Build SRG XLSX Export: OFF
+-- jinja2 cache: enabled
+-- jinja2 cache dir: /home/qduanmu/projects/content/build/jinja2_cache
+-- Separate SCAP files: ON
+-- STIG Delta Taloring files: ON
+-- Thin data streams: OFF
+--  
+-- Validation options:
+-- BATS tests: ON
+-- Link Checker validation: ON
+-- OVAL schematron validation: ON
+-- shellcheck bash fixes validation: ON
+-- SCAPVal 1.3 Enabled: OFF
+-- Validate SCAP content: ON
+-- Force validate everything: OFF
+--  
+-- Products:
+-- Alibaba Cloud Linux 2: OFF
+-- Alibaba Cloud Linux 3: OFF
+-- Anolis OS 8: OFF
+-- Anolis OS 23: OFF
+-- Chromium: OFF
+-- Debian 11: OFF
+-- Debian 12: OFF
+-- Example: OFF
+-- EKS: OFF
+-- Fedora: OFF
+-- Firefox: OFF
+-- MacOS 1015: OFF
+-- Kylin Server V10: OFF
+-- OCP4: ON
+-- RHCOS4: OFF
+-- Oracle Linux 7: OFF
+-- Oracle Linux 8: OFF
+-- Oracle Linux 9: OFF
+-- Oracle Linux 10: OFF
+-- openEuler 22.03 LTS: OFF
+-- openSUSE: OFF
+-- RHEL 8: OFF
+-- RHEL 9: OFF
+-- RHEL 10: OFF
+-- RHV 4: OFF
+-- SUSE 12: OFF
+-- SUSE 15: OFF
+-- SLE Micro 5: OFF
+-- Ubuntu 16.04: OFF
+-- Ubuntu 18.04: OFF
+-- Ubuntu 20.04: OFF
+-- Ubuntu 22.04: OFF
+-- Ubuntu 24.04: OFF
+-- AL 2023: OFF
+-- OpenEmbedded: OFF
+--  
+-- Scanning for dependencies of ocp4 fixes (bash, ansible, puppet, anaconda, ignition, kubernetes and blueprint)...
+-- Won't validate ocp4, as it requires the OpenSCAP scanner that is capable of the validation.
+-- Won't validate ocp4, as it requires the OpenSCAP scanner that is capable of the validation.
+-- Won't validate ocp4, as it requires the OpenSCAP scanner that is capable of the validation.
+-- Configuring done (5.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/qduanmu/projects/content/build
+[  0%] [ocp4-content] generating sce/metadata.json
+[  0%] Built target ocp4-tables
+[  0%] Built target generate-internal-ocp4-sce-metadata.json
+[  1%] [ocp4-content] compiling product yaml
+[  2%] [ocp4-content] compiling everything
+[  2%] Built target ocp4-compile-all
+[  5%] [ocp4-content] generating templated content
+[  5%] Generating ../tables/tables-ocp4-all.html
+[  8%] Built target generate-ssg-tables-ocp4-all
+[ 11%] Built target generate-internal-templated-content-ocp4
+[ 14%] [ocp4-content] generating oval-unlinked.xml
+[ 14%] [ocp4-content] generating cpe-oval-unlinked.xml
+[ 14%] [ocp4-content] collecting all fixes
+[ 17%] Built target generate-internal-ocp4-cpe-oval-unlinked.xml
+[ 20%] Built target generate-internal-ocp4-all-fixes
+[ 23%] Built target generate-internal-ocp4-oval-unlinked.xml
+[ 23%] [ocp4-content] generating plain XCCDF, OVAL and OCIL files
+[ 28%] Built target generate-ocp4-xccdf-oval-ocil
+[ 28%] [ocp4-content] generating ssg-ocp4-xccdf.xml
+[ 29%] [ocp4-content] generating ssg-ocp4-ocil.xml
+[ 31%] [ocp4-content] generating ssg-ocp4-cpe-dictionary.xml, ssg-ocp4-cpe-oval.xml
+[ 32%] [ocp4-content] generating ssg-ocp4-oval.xml
+[ 38%] Built target generate-ssg-ocp4-xccdf.xml
+[ 43%] Built target generate-ssg-ocp4-ocil.xml
+[ 49%] Built target generate-ssg-ocp4-oval.xml
+[ 55%] Built target generate-ssg-ocp4-cpe-dictionary.xml
+[ 56%] [ocp4-content] Updating data stream ssg-ocp4-ds.xml to 1.3
+[ 67%] Built target generate-ssg-ocp4-ds.xml
+[ 68%] [ocp4-guides] generating HTML guides for all profiles in ssg-ocp4-ds.xml
+[ 68%] [ocp4-content] generating JSON manifest
+[ 79%] Built target generate-ssg-ocp4-manifest.json
+[ 79%] Built target ocp4-content
+[ 89%] Built target generate-ssg-ocp4-guide-index.html
+[100%] Built target ocp4-guides
+[100%] Built target ocp4
+[100%] [man-page] generating man page
+[100%] Built target man_page
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ ./utils/rule_dir_json.py 
+Traceback (most recent call last):
+  File "/home/qduanmu/projects/content/./utils/rule_dir_json.py", line 12, in <module>
+    import ssg.build_yaml
+ModuleNotFoundError: No module named 'ssg'
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ pip list |grep ssg
+ssg                      0.1.76.dev330+f1d163c7d5
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ source .pyenv.sh 
+/home/qduanmu/projects/content
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ pip list |grep ssg
+ssg                      0.1.76.dev330+f1d163c7d5
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ ./utils/rule_dir_json.py 
+Product ubuntu1604 has multiple remediations of the same type in rule chronyd_run_as_chrony_user: shared.sh,ubuntu.sh
+Product ubuntu2404 has multiple remediations of the same type in rule chronyd_run_as_chrony_user: shared.sh,ubuntu.sh
+Product ubuntu2204 has multiple remediations of the same type in rule chronyd_run_as_chrony_user: shared.sh,ubuntu.sh
+Product ubuntu1804 has multiple remediations of the same type in rule chronyd_run_as_chrony_user: shared.sh,ubuntu.sh
+Product ubuntu2004 has multiple remediations of the same type in rule chronyd_run_as_chrony_user: shared.sh,ubuntu.sh
+Product ubuntu1604 has multiple remediations of the same type in rule dconf_gnome_login_banner_text: shared.sh,ubuntu.sh
+Product ubuntu2404 has multiple remediations of the same type in rule dconf_gnome_login_banner_text: shared.sh,ubuntu.sh
+Product ubuntu2204 has multiple remediations of the same type in rule dconf_gnome_login_banner_text: shared.sh,ubuntu.sh
+Product ubuntu1804 has multiple remediations of the same type in rule dconf_gnome_login_banner_text: shared.sh,ubuntu.sh
+Product ubuntu2004 has multiple remediations of the same type in rule dconf_gnome_login_banner_text: shared.sh,ubuntu.sh
+Product sle12 has multiple remediations of the same type in rule accounts_passwords_pam_faildelay_delay: sle12.sh,sle15.sh
+Product sle15 has multiple remediations of the same type in rule accounts_passwords_pam_faildelay_delay: sle12.sh,sle15.sh
+Product ubuntu1604 has multiple remediations of the same type in rule accounts_password_pam_retry: shared.sh,ubuntu.sh
+Product ubuntu2404 has multiple remediations of the same type in rule accounts_password_pam_retry: shared.sh,ubuntu.sh
+Product ubuntu2204 has multiple remediations of the same type in rule accounts_password_pam_retry: shared.sh,ubuntu.sh
+Product ubuntu1804 has multiple remediations of the same type in rule accounts_password_pam_retry: shared.sh,ubuntu.sh
+Product ubuntu2004 has multiple remediations of the same type in rule accounts_password_pam_retry: shared.sh,ubuntu.sh
+Product debian12 has multiple remediations of the same type in rule accounts_password_pam_retry: debian.sh,shared.sh
+Product debian11 has multiple remediations of the same type in rule accounts_password_pam_retry: debian.sh,shared.sh
+Product sle12 has multiple remediations of the same type in rule install_smartcard_packages: sle12.sh,sle12.yml,sle15.sh,sle15.yml
+Product sle15 has multiple remediations of the same type in rule install_smartcard_packages: sle12.sh,sle12.yml,sle15.sh,sle15.yml
+Product sle12 has multiple remediations of the same type in rule no_empty_passwords: shared.sh,sle12.yml,sle15.yml
+Product sle15 has multiple remediations of the same type in rule no_empty_passwords: shared.sh,sle12.yml,sle15.yml
+Product slmicro5 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,slmicro5.sh,slmicro5.yml
+Product sle12 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,sle12.sh,sle12.yml,sle15.sh,sle15.yml
+Product sle15 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,sle12.sh,sle12.yml,sle15.sh,sle15.yml
+Product ubuntu1604 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu2404 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu2204 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu1804 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu2004 has multiple remediations of the same type in rule accounts_tmout: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu1604 has multiple remediations of the same type in rule rsyslog_remote_access_monitoring: shared.sh,shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu2404 has multiple remediations of the same type in rule rsyslog_remote_access_monitoring: shared.sh,shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu2204 has multiple remediations of the same type in rule rsyslog_remote_access_monitoring: shared.sh,shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu1804 has multiple remediations of the same type in rule rsyslog_remote_access_monitoring: shared.sh,shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu2004 has multiple remediations of the same type in rule rsyslog_remote_access_monitoring: shared.sh,shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu1604 has multiple remediations of the same type in rule wireless_disable_interfaces: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu2404 has multiple remediations of the same type in rule wireless_disable_interfaces: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu2204 has multiple remediations of the same type in rule wireless_disable_interfaces: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu1804 has multiple remediations of the same type in rule wireless_disable_interfaces: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu2004 has multiple remediations of the same type in rule wireless_disable_interfaces: shared.sh,shared.yml,ubuntu.sh
+Product ubuntu1604 has multiple remediations of the same type in rule aide_build_database: shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu2404 has multiple remediations of the same type in rule aide_build_database: shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu2204 has multiple remediations of the same type in rule aide_build_database: shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu1804 has multiple remediations of the same type in rule aide_build_database: shared.yml,ubuntu.sh,ubuntu.yml
+Product ubuntu2004 has multiple remediations of the same type in rule aide_build_database: shared.yml,ubuntu.sh,ubuntu.yml
+Product debian12 has multiple remediations of the same type in rule aide_build_database: debian.sh,debian.yml,shared.yml
+Product debian11 has multiple remediations of the same type in rule aide_build_database: debian.sh,debian.yml,shared.yml
+(cac) [qduanmu@MiWiFi-R4A-srv content(master)]$ ./utils/oscal/build_cd_from_policy.py -o build/ocp4.json -p fedramp_rev4_high -pr ocp4 -c nist_ocp4:high
+INFO - Creating component definition for ocp4
+INFO - Creating implemented requirement for AC-1
+INFO - Creating implemented requirement for AC-2
+INFO - Creating implemented requirement for AC-2(1)
+INFO - Creating implemented requirement for AC-2(2)
+INFO - Creating implemented requirement for AC-2(3)
+INFO - Creating implemented requirement for AC-2(4)
+INFO - Creating implemented requirement for AC-2(5)
+INFO - Creating implemented requirement for AC-2(7)
+INFO - Creating implemented requirement for AC-2(9)
+INFO - Creating implemented requirement for AC-2(10)
+INFO - Creating implemented requirement for AC-2(11)
+INFO - Creating implemented requirement for AC-2(12)
+INFO - Creating implemented requirement for AC-2(13)
+INFO - Creating implemented requirement for AC-3
+INFO - Creating implemented requirement for AC-4
+INFO - Creating implemented requirement for AC-4(8)
+INFO - Creating implemented requirement for AC-4(21)
+INFO - Creating implemented requirement for AC-5
+INFO - Creating implemented requirement for AC-6
+INFO - Creating implemented requirement for AC-6(1)
+INFO - Creating implemented requirement for AC-6(2)
+INFO - Creating implemented requirement for AC-6(3)
+INFO - Creating implemented requirement for AC-6(5)
+INFO - Creating implemented requirement for AC-6(7)
+INFO - Creating implemented requirement for AC-6(8)
+INFO - Creating implemented requirement for AC-6(9)
+INFO - Creating implemented requirement for AC-6(10)
+INFO - Creating implemented requirement for AC-7
+INFO - Creating implemented requirement for AC-7(2)
+INFO - Creating implemented requirement for AC-8
+INFO - Creating implemented requirement for AC-10
+INFO - Creating implemented requirement for AC-11
+INFO - Creating implemented requirement for AC-11(1)
+INFO - Creating implemented requirement for AC-12
+INFO - Creating implemented requirement for AC-12(1)
+INFO - Creating implemented requirement for AC-14
+INFO - Creating implemented requirement for AC-17
+INFO - Creating implemented requirement for AC-17(1)
+INFO - Creating implemented requirement for AC-17(2)
+INFO - Creating implemented requirement for AC-17(3)
+INFO - Creating implemented requirement for AC-17(4)
+INFO - Creating implemented requirement for AC-17(9)
+INFO - Creating implemented requirement for AC-18
+INFO - Creating implemented requirement for AC-18(1)
+INFO - Creating implemented requirement for AC-18(3)
+INFO - Creating implemented requirement for AC-18(4)
+INFO - Creating implemented requirement for AC-18(5)
+INFO - Creating implemented requirement for AC-19
+INFO - Creating implemented requirement for AC-19(5)
+INFO - Creating implemented requirement for AC-20
+INFO - Creating implemented requirement for AC-20(1)
+INFO - Creating implemented requirement for AC-20(2)
+INFO - Creating implemented requirement for AC-21
+INFO - Creating implemented requirement for AC-22
+INFO - Creating implemented requirement for AT-1
+INFO - Creating implemented requirement for AT-2
+INFO - Creating implemented requirement for AT-2(2)
+INFO - Creating implemented requirement for AT-3
+INFO - Creating implemented requirement for AT-3(3)
+INFO - Creating implemented requirement for AT-3(4)
+INFO - Creating implemented requirement for AT-4
+INFO - Creating implemented requirement for AU-1
+INFO - Creating implemented requirement for AU-2
+INFO - Adding parameter var_openshift_audit_profile
+INFO - Creating implemented requirement for AU-2(3)
+INFO - Creating implemented requirement for AU-3
+INFO - Creating implemented requirement for AU-3(1)
+INFO - Creating implemented requirement for AU-3(2)
+INFO - Creating implemented requirement for AU-4
+INFO - Creating implemented requirement for AU-5
+INFO - Creating implemented requirement for AU-5(1)
+INFO - Creating implemented requirement for AU-5(2)
+INFO - Creating implemented requirement for AU-6
+INFO - Creating implemented requirement for AU-6(1)
+INFO - Creating implemented requirement for AU-6(3)
+INFO - Creating implemented requirement for AU-6(4)
+INFO - Creating implemented requirement for AU-6(5)
+INFO - Creating implemented requirement for AU-6(6)
+INFO - Creating implemented requirement for AU-6(7)
+INFO - Creating implemented requirement for AU-6(10)
+INFO - Creating implemented requirement for AU-7
+INFO - Creating implemented requirement for AU-7(1)
+INFO - Creating implemented requirement for AU-8
+INFO - Creating implemented requirement for AU-8(1)
+INFO - Creating implemented requirement for AU-9
+INFO - Creating implemented requirement for AU-9(2)
+INFO - Creating implemented requirement for AU-9(3)
+INFO - Creating implemented requirement for AU-9(4)
+INFO - Creating implemented requirement for AU-10
+INFO - Creating implemented requirement for AU-11
+INFO - Creating implemented requirement for AU-12
+INFO - Creating implemented requirement for AU-12(1)
+INFO - Creating implemented requirement for AU-12(3)
+INFO - Creating implemented requirement for CA-1
+INFO - Creating implemented requirement for CA-2
+INFO - Creating implemented requirement for CA-2(1)
+INFO - Creating implemented requirement for CA-2(2)
+INFO - Creating implemented requirement for CA-2(3)
+INFO - Creating implemented requirement for CA-3
+INFO - Creating implemented requirement for CA-3(3)
+INFO - Creating implemented requirement for CA-3(5)
+INFO - Creating implemented requirement for CA-5
+INFO - Creating implemented requirement for CA-6
+INFO - Creating implemented requirement for CA-7
+INFO - Creating implemented requirement for CA-7(1)
+INFO - Creating implemented requirement for CA-7(3)
+INFO - Creating implemented requirement for CA-8
+INFO - Creating implemented requirement for CA-8(1)
+INFO - Creating implemented requirement for CA-9
+INFO - Creating implemented requirement for CM-1
+INFO - Creating implemented requirement for CM-2
+INFO - Creating implemented requirement for CM-2(1)
+INFO - Creating implemented requirement for CM-2(2)
+INFO - Creating implemented requirement for CM-2(3)
+INFO - Creating implemented requirement for CM-2(7)
+INFO - Creating implemented requirement for CM-3
+INFO - Creating implemented requirement for CM-3(1)
+INFO - Creating implemented requirement for CM-3(2)
+INFO - Creating implemented requirement for CM-3(4)
+INFO - Creating implemented requirement for CM-3(6)
+INFO - Creating implemented requirement for CM-4
+INFO - Creating implemented requirement for CM-4(1)
+INFO - Creating implemented requirement for CM-5
+INFO - Creating implemented requirement for CM-5(1)
+INFO - Creating implemented requirement for CM-5(2)
+INFO - Creating implemented requirement for CM-5(3)
+INFO - Creating implemented requirement for CM-5(5)
+INFO - Creating implemented requirement for CM-6
+INFO - Adding parameter var_api_min_request_timeout
+INFO - Adding parameter var_apiserver_bind_address
+INFO - Adding parameter var_kubelet_tls_cipher_suites_regex
+INFO - Creating implemented requirement for CM-6(1)
+INFO - Creating implemented requirement for CM-6(2)
+INFO - Creating implemented requirement for CM-7
+INFO - Creating implemented requirement for CM-7(1)
+INFO - Creating implemented requirement for CM-7(2)
+INFO - Creating implemented requirement for CM-7(5)
+INFO - Creating implemented requirement for CM-8
+INFO - Creating implemented requirement for CM-8(1)
+INFO - Creating implemented requirement for CM-8(2)
+INFO - Creating implemented requirement for CM-8(3)
+INFO - Creating implemented requirement for CM-8(4)
+INFO - Creating implemented requirement for CM-8(5)
+INFO - Creating implemented requirement for CM-9
+INFO - Creating implemented requirement for CM-10
+INFO - Creating implemented requirement for CM-10(1)
+INFO - Creating implemented requirement for CM-11
+INFO - Creating implemented requirement for CM-11(1)
+INFO - Creating implemented requirement for CP-1
+INFO - Creating implemented requirement for CP-2
+INFO - Creating implemented requirement for CP-2(1)
+INFO - Creating implemented requirement for CP-2(2)
+INFO - Creating implemented requirement for CP-2(3)
+INFO - Creating implemented requirement for CP-2(4)
+INFO - Creating implemented requirement for CP-2(5)
+INFO - Creating implemented requirement for CP-2(8)
+INFO - Creating implemented requirement for CP-3
+INFO - Creating implemented requirement for CP-3(1)
+INFO - Creating implemented requirement for CP-4
+INFO - Creating implemented requirement for CP-4(1)
+INFO - Creating implemented requirement for CP-4(2)
+INFO - Creating implemented requirement for CP-6
+INFO - Creating implemented requirement for CP-6(1)
+INFO - Creating implemented requirement for CP-6(2)
+INFO - Creating implemented requirement for CP-6(3)
+INFO - Creating implemented requirement for CP-7
+INFO - Creating implemented requirement for CP-7(1)
+INFO - Creating implemented requirement for CP-7(2)
+INFO - Creating implemented requirement for CP-7(3)
+INFO - Creating implemented requirement for CP-7(4)
+INFO - Creating implemented requirement for CP-8
+INFO - Creating implemented requirement for CP-8(1)
+INFO - Creating implemented requirement for CP-8(2)
+INFO - Creating implemented requirement for CP-8(3)
+INFO - Creating implemented requirement for CP-8(4)
+INFO - Creating implemented requirement for CP-9
+INFO - Creating implemented requirement for CP-9(1)
+INFO - Creating implemented requirement for CP-9(2)
+INFO - Creating implemented requirement for CP-9(3)
+INFO - Creating implemented requirement for CP-9(5)
+INFO - Creating implemented requirement for CP-10
+INFO - Creating implemented requirement for CP-10(2)
+INFO - Creating implemented requirement for CP-10(4)
+INFO - Creating implemented requirement for IA-1
+INFO - Creating implemented requirement for IA-2
+INFO - Creating implemented requirement for IA-2(1)
+INFO - Creating implemented requirement for IA-2(2)
+INFO - Creating implemented requirement for IA-2(3)
+INFO - Creating implemented requirement for IA-2(4)
+INFO - Creating implemented requirement for IA-2(5)
+INFO - Creating implemented requirement for IA-2(8)
+INFO - Creating implemented requirement for IA-2(9)
+INFO - Creating implemented requirement for IA-2(11)
+INFO - Creating implemented requirement for IA-2(12)
+INFO - Creating implemented requirement for IA-3
+INFO - Creating implemented requirement for IA-4
+INFO - Creating implemented requirement for IA-4(4)
+INFO - Creating implemented requirement for IA-5
+INFO - Creating implemented requirement for IA-5(1)
+INFO - Creating implemented requirement for IA-5(2)
+INFO - Creating implemented requirement for IA-5(3)
+INFO - Creating implemented requirement for IA-5(4)
+INFO - Creating implemented requirement for IA-5(6)
+INFO - Creating implemented requirement for IA-5(7)
+INFO - Creating implemented requirement for IA-5(8)
+INFO - Creating implemented requirement for IA-5(11)
+INFO - Creating implemented requirement for IA-5(13)
+INFO - Creating implemented requirement for IA-6
+INFO - Creating implemented requirement for IA-7
+INFO - Creating implemented requirement for IA-8
+INFO - Creating implemented requirement for IA-8(1)
+INFO - Creating implemented requirement for IA-8(2)
+INFO - Creating implemented requirement for IA-8(3)
+INFO - Creating implemented requirement for IA-8(4)
+INFO - Creating implemented requirement for IR-1
+INFO - Creating implemented requirement for IR-2
+INFO - Creating implemented requirement for IR-2(1)
+INFO - Creating implemented requirement for IR-2(2)
+INFO - Creating implemented requirement for IR-3
+INFO - Creating implemented requirement for IR-3(2)
+INFO - Creating implemented requirement for IR-4
+INFO - Creating implemented requirement for IR-4(1)
+INFO - Creating implemented requirement for IR-4(2)
+INFO - Creating implemented requirement for IR-4(3)
+INFO - Creating implemented requirement for IR-4(4)
+INFO - Creating implemented requirement for IR-4(6)
+INFO - Creating implemented requirement for IR-4(8)
+INFO - Creating implemented requirement for IR-5
+INFO - Creating implemented requirement for IR-5(1)
+INFO - Creating implemented requirement for IR-6
+INFO - Creating implemented requirement for IR-6(1)
+INFO - Creating implemented requirement for IR-7
+INFO - Creating implemented requirement for IR-7(1)
+INFO - Creating implemented requirement for IR-7(2)
+INFO - Creating implemented requirement for IR-8
+INFO - Creating implemented requirement for IR-9
+INFO - Creating implemented requirement for IR-9(1)
+INFO - Creating implemented requirement for IR-9(2)
+INFO - Creating implemented requirement for IR-9(3)
+INFO - Creating implemented requirement for IR-9(4)
+INFO - Creating implemented requirement for MA-1
+INFO - Creating implemented requirement for MA-2
+INFO - Creating implemented requirement for MA-2(2)
+INFO - Creating implemented requirement for MA-3
+INFO - Creating implemented requirement for MA-3(1)
+INFO - Creating implemented requirement for MA-3(2)
+INFO - Creating implemented requirement for MA-3(3)
+INFO - Creating implemented requirement for MA-4
+INFO - Creating implemented requirement for MA-4(2)
+INFO - Creating implemented requirement for MA-4(3)
+INFO - Creating implemented requirement for MA-4(6)
+INFO - Creating implemented requirement for MA-5
+INFO - Creating implemented requirement for MA-5(1)
+INFO - Creating implemented requirement for MA-6
+INFO - Creating implemented requirement for MP-1
+INFO - Creating implemented requirement for MP-2
+INFO - Creating implemented requirement for MP-3
+INFO - Creating implemented requirement for MP-4
+INFO - Creating implemented requirement for MP-5
+INFO - Creating implemented requirement for MP-5(4)
+INFO - Creating implemented requirement for MP-6
+INFO - Creating implemented requirement for MP-6(1)
+INFO - Creating implemented requirement for MP-6(2)
+INFO - Creating implemented requirement for MP-6(3)
+INFO - Creating implemented requirement for MP-7
+INFO - Creating implemented requirement for MP-7(1)
+INFO - Creating implemented requirement for PE-1
+INFO - Creating implemented requirement for PE-2
+INFO - Creating implemented requirement for PE-3
+INFO - Creating implemented requirement for PE-3(1)
+INFO - Creating implemented requirement for PE-4
+INFO - Creating implemented requirement for PE-5
+INFO - Creating implemented requirement for PE-6
+INFO - Creating implemented requirement for PE-6(1)
+INFO - Creating implemented requirement for PE-6(4)
+INFO - Creating implemented requirement for PE-8
+INFO - Creating implemented requirement for PE-8(1)
+INFO - Creating implemented requirement for PE-9
+INFO - Creating implemented requirement for PE-10
+INFO - Creating implemented requirement for PE-11
+INFO - Creating implemented requirement for PE-11(1)
+INFO - Creating implemented requirement for PE-12
+INFO - Creating implemented requirement for PE-13
+INFO - Creating implemented requirement for PE-13(1)
+INFO - Creating implemented requirement for PE-13(2)
+INFO - Creating implemented requirement for PE-13(3)
+INFO - Creating implemented requirement for PE-14
+INFO - Creating implemented requirement for PE-14(2)
+INFO - Creating implemented requirement for PE-15
+INFO - Creating implemented requirement for PE-15(1)
+INFO - Creating implemented requirement for PE-16
+INFO - Creating implemented requirement for PE-17
+INFO - Creating implemented requirement for PE-18
+INFO - Creating implemented requirement for PL-1
+INFO - Creating implemented requirement for PL-2
+INFO - Creating implemented requirement for PL-2(3)
+INFO - Creating implemented requirement for PL-4
+INFO - Creating implemented requirement for PL-4(1)
+INFO - Creating implemented requirement for PL-8
+INFO - Creating implemented requirement for PS-1
+INFO - Creating implemented requirement for PS-2
+INFO - Creating implemented requirement for PS-3
+INFO - Creating implemented requirement for PS-3(3)
+INFO - Creating implemented requirement for PS-4
+INFO - Creating implemented requirement for PS-4(2)
+INFO - Creating implemented requirement for PS-5
+INFO - Creating implemented requirement for PS-6
+INFO - Creating implemented requirement for PS-7
+INFO - Creating implemented requirement for PS-8
+INFO - Creating implemented requirement for RA-1
+INFO - Creating implemented requirement for RA-2
+INFO - Creating implemented requirement for RA-3
+INFO - Creating implemented requirement for RA-5
+INFO - Creating implemented requirement for RA-5(1)
+INFO - Creating implemented requirement for RA-5(2)
+INFO - Creating implemented requirement for RA-5(3)
+INFO - Creating implemented requirement for RA-5(4)
+INFO - Creating implemented requirement for RA-5(5)
+INFO - Creating implemented requirement for RA-5(6)
+INFO - Creating implemented requirement for RA-5(8)
+INFO - Creating implemented requirement for RA-5(10)
+INFO - Creating implemented requirement for SA-1
+INFO - Creating implemented requirement for SA-2
+INFO - Creating implemented requirement for SA-3
+INFO - Creating implemented requirement for SA-4
+INFO - Creating implemented requirement for SA-4(1)
+INFO - Creating implemented requirement for SA-4(2)
+INFO - Creating implemented requirement for SA-4(8)
+INFO - Creating implemented requirement for SA-4(9)
+INFO - Creating implemented requirement for SA-4(10)
+INFO - Creating implemented requirement for SA-5
+INFO - Creating implemented requirement for SA-8
+INFO - Creating implemented requirement for SA-9
+INFO - Creating implemented requirement for SA-9(1)
+INFO - Creating implemented requirement for SA-9(2)
+INFO - Creating implemented requirement for SA-9(4)
+INFO - Creating implemented requirement for SA-9(5)
+INFO - Creating implemented requirement for SA-10
+INFO - Creating implemented requirement for SA-10(1)
+INFO - Creating implemented requirement for SA-11
+INFO - Creating implemented requirement for SA-11(1)
+INFO - Creating implemented requirement for SA-11(2)
+INFO - Creating implemented requirement for SA-11(8)
+INFO - Creating implemented requirement for SA-12
+INFO - Creating implemented requirement for SA-15
+INFO - Creating implemented requirement for SA-16
+INFO - Creating implemented requirement for SA-17
+INFO - Creating implemented requirement for SC-1
+INFO - Creating implemented requirement for SC-2
+INFO - Creating implemented requirement for SC-3
+INFO - Creating implemented requirement for SC-4
+INFO - Creating implemented requirement for SC-5
+INFO - Creating implemented requirement for SC-6
+INFO - Creating implemented requirement for SC-7
+INFO - Creating implemented requirement for SC-7(3)
+INFO - Creating implemented requirement for SC-7(4)
+INFO - Creating implemented requirement for SC-7(5)
+INFO - Creating implemented requirement for SC-7(7)
+INFO - Creating implemented requirement for SC-7(8)
+INFO - Creating implemented requirement for SC-7(10)
+INFO - Creating implemented requirement for SC-7(12)
+INFO - Creating implemented requirement for SC-7(13)
+INFO - Creating implemented requirement for SC-7(18)
+INFO - Creating implemented requirement for SC-7(20)
+INFO - Creating implemented requirement for SC-7(21)
+INFO - Creating implemented requirement for SC-8
+INFO - Adding parameter var_kubelet_tls_min_version_regex
+INFO - Creating implemented requirement for SC-8(1)
+INFO - Creating implemented requirement for SC-10
+INFO - Creating implemented requirement for SC-12
+INFO - Creating implemented requirement for SC-12(1)
+INFO - Creating implemented requirement for SC-12(2)
+INFO - Creating implemented requirement for SC-12(3)
+INFO - Creating implemented requirement for SC-13
+INFO - Creating implemented requirement for SC-15
+INFO - Creating implemented requirement for SC-17
+INFO - Creating implemented requirement for SC-18
+INFO - Creating implemented requirement for SC-19
+INFO - Creating implemented requirement for SC-20
+INFO - Creating implemented requirement for SC-21
+INFO - Creating implemented requirement for SC-22
+INFO - Creating implemented requirement for SC-23
+INFO - Creating implemented requirement for SC-23(1)
+INFO - Creating implemented requirement for SC-24
+INFO - Creating implemented requirement for SC-28
+INFO - Creating implemented requirement for SC-28(1)
+INFO - Creating implemented requirement for SC-39
+INFO - Creating implemented requirement for SI-1
+INFO - Creating implemented requirement for SI-2
+INFO - Creating implemented requirement for SI-2(1)
+INFO - Creating implemented requirement for SI-2(2)
+INFO - Creating implemented requirement for SI-2(3)
+INFO - Creating implemented requirement for SI-3
+INFO - Creating implemented requirement for SI-3(1)
+INFO - Creating implemented requirement for SI-3(2)
+INFO - Creating implemented requirement for SI-3(7)
+INFO - Creating implemented requirement for SI-4
+INFO - Creating implemented requirement for SI-4(1)
+INFO - Creating implemented requirement for SI-4(2)
+INFO - Creating implemented requirement for SI-4(4)
+INFO - Creating implemented requirement for SI-4(5)
+INFO - Creating implemented requirement for SI-4(11)
+INFO - Creating implemented requirement for SI-4(14)
+INFO - Creating implemented requirement for SI-4(16)
+INFO - Creating implemented requirement for SI-4(18)
+INFO - Creating implemented requirement for SI-4(19)
+INFO - Creating implemented requirement for SI-4(20)
+INFO - Creating implemented requirement for SI-4(22)
+INFO - Creating implemented requirement for SI-4(23)
+INFO - Creating implemented requirement for SI-4(24)
+INFO - Creating implemented requirement for SI-5
+INFO - Creating implemented requirement for SI-5(1)
+INFO - Creating implemented requirement for SI-6
+INFO - Creating implemented requirement for SI-7
+INFO - Creating implemented requirement for SI-7(1)
+INFO - Creating implemented requirement for SI-7(2)
+INFO - Creating implemented requirement for SI-7(5)
+INFO - Creating implemented requirement for SI-7(7)
+INFO - Creating implemented requirement for SI-7(14)
+INFO - Creating implemented requirement for SI-8
+INFO - Creating implemented requirement for SI-8(1)
+INFO - Creating implemented requirement for SI-8(2)
+INFO - Creating implemented requirement for SI-10
+INFO - Creating implemented requirement for SI-11
+INFO - Creating implemented requirement for SI-12
+INFO - Creating implemented requirement for SI-16
+INFO - Writing component definition to build/ocp4.json
+
