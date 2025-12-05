@@ -1,0 +1,82 @@
+---
+name: Secure by Compliance
+
+on:
+  workflow_dispatch:
+
+# {} also works, but making it explicit which permissions are needed is betters.
+# Now I can more easily track where and how they are used in the workflow.
+permissions:
+  id-token: none
+  attestations: none
+  contents: none
+
+jobs:
+  secure-by-compliance:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      attestations: write
+      contents: read
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup snappy for API calls
+        uses: carabiner-dev/actions/install/snappy@100bcc8d38102ef3ca2a997c04033308198666cd
+
+      - name: Setup bnd to create attestations bundles
+        uses: carabiner-dev/actions/install/bnd@100bcc8d38102ef3ca2a997c04033308198666cd
+
+      - name: Generate branch rules attestation
+        id: attestation
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: |
+          mkdir -p attestations
+
+          # Use snappy to make the API call to the branch rules endpoint
+          # and save the result to a file with the option to hide sensitive data.
+          snappy snap builtin:github/branch-rules.yaml \
+          -v BRANCH=${{ github.ref_name }} \
+          -v REPO=${{ github.event.repository.name }} \
+          -v ORG=${{github.repository_owner}} \
+          --attest > attestations/branch-rules.intoto.json
+
+          # Create a bundle from the intoto.json file
+          bnd statement attestations/branch-rules.intoto.json --out attestations/branch-rules.bundle.json
+
+          # Push the bundle to the GitHub repository
+          bnd push github ${{github.repository}} attestations/branch-rules.bundle.json
+
+          # Extract SHA256 digest
+          SHA256=$(jq -r '.subject[0].digest.sha256' attestations/branch-rules.intoto.json)
+          echo "sha256=$SHA256" >> $GITHUB_OUTPUT
+
+          # Clean up the files that are no longer needed
+          rm -f attestations/branch-rules.intoto.json
+
+      - name: Pack Attestations
+        run: |
+          # Pack the attestations into a single file.
+          # It is using a directory as input but it could also be multiple explicit files.
+          bnd pack attestations/ > attestations.jsonl
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: attestations.jsonl
+          path: attestations.jsonl
+
+      - uses: carabiner-dev/actions/ampel/verify@100bcc8d38102ef3ca2a997c04033308198666cd
+        name: Evaluate Compliance
+        with:
+          subject: sha256:${{ steps.attestation.outputs.sha256 }}
+          collector: "jsonl:attestations.jsonl"
+          policy: "git+https://github.com/marcusburghardt/github-standards#ampel_policies/branch-protection-rules.json"
+          attest: true
+          fail: false
