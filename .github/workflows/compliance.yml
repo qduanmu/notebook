@@ -47,6 +47,8 @@ jobs:
           -v ORG=${{github.repository_owner}} \
           --attest > attestations/branch-rules.intoto.json
 
+          # Test
+          cat attestations/branch-rules.intoto.json
           # Create a bundle from the intoto.json file
           bnd statement attestations/branch-rules.intoto.json --out attestations/branch-rules.bundle.json
 
@@ -57,14 +59,21 @@ jobs:
           SHA256=$(jq -r '.subject[0].digest.sha256' attestations/branch-rules.intoto.json)
           echo "sha256=$SHA256" >> $GITHUB_OUTPUT
 
+          # Test
+          cat attestations/branch-rules.intoto.json
+
           # Clean up the files that are no longer needed
-          rm -f attestations/branch-rules.intoto.json
+          # rm -f attestations/branch-rules.intoto.json
 
       - name: Pack Attestations
         run: |
           # Pack the attestations into a single file.
           # It is using a directory as input but it could also be multiple explicit files.
           bnd pack attestations/ > attestations.jsonl
+
+          # Test
+          cat attestations.jsonl
+
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
