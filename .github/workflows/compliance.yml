@@ -89,5 +89,7 @@ jobs:
           policy: "git+https://github.com/marcusburghardt/github-standards#ampel_policies/branch-protection-rules.json"
           attest: true
           fail: false
+
+      - name: Check the Attestation result
         run: |
           cat ampel.intoto.json
