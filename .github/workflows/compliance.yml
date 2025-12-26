@@ -92,4 +92,5 @@ jobs:
 
       - name: Check the Attestation result
         run: |
-          cat ampel.intoto.json
+          # Inspect the resulting bundle:
+          bnd inspect ampel.intoto.json 
