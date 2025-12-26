@@ -1,0 +1,106 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "myapp-binary",
+      "digest": {
+        "sha256": "08bdfa07a9a1404eb8929f45896c715a3c2b8e6f4d7c9a1b2e3f4a5b6c7d8e9f"
+      }
+    }
+  ],
+  "predicateType": "https://carabiner.dev/ResultSet/v1",
+  "predicate": {
+    "policy_set": {
+      "id": "OSPS",
+      "version": "1"
+    },
+    "status": "PASS",
+    "date_start": "2025-12-26T10:30:45.123Z",
+    "date_end": "2025-12-26T10:30:45.357Z",
+    "subject": {
+      "name": "myapp-binary",
+      "digest": {
+        "sha256": "08bdfa07a9a1404eb8929f45896c715a3c2b8e6f4d7c9a1b2e3f4a5b6c7d8e9f"
+      }
+    },
+    "results": [
+      {
+        "status": "PASS",
+        "date_start": "2025-12-26T10:30:45.123Z",
+        "date_end": "2025-12-26T10:30:45.357Z",
+        "policy": {
+          "id": "AC-07",
+          "version": "v0.0.1"
+        },
+        "eval_results": [
+          {
+            "id": "check-predicates",
+            "status": "PASS",
+            "date": "2025-12-26T10:30:45.200Z",
+            "assessment": {
+              "message": "Predicates loaded successfully"
+            },
+            "output": {
+              "predicate_count": 1
+            },
+            "statements": [
+              {
+                "digest": "sha256:abc123def456",
+                "type": "application/protobom"
+              }
+            ]
+          },
+          {
+            "id": "check-sbom-metadata",
+            "status": "PASS",
+            "date": "2025-12-26T10:30:45.280Z",
+            "assessment": {
+              "message": "SBOM metadata validated"
+            },
+            "output": {
+              "first_sbom_name": "SBOM-SPDX-08bdfa07-a9a1-404e-b892-9f45896c715a"
+            }
+          },
+          {
+            "id": "check-context-author",
+            "status": "PASS",
+            "date": "2025-12-26T10:30:45.350Z",
+            "assessment": {
+              "message": "Context author matches expected value"
+            },
+            "output": {
+              "author": "Puerco",
+              "context": {
+                "author": "Puerco",
+                "count": 1,
+                "shopping_list": ["soup", "apples"]
+              }
+            }
+          }
+        ],
+        "meta": {
+          "description": "The project's version control system MUST require multi-factor authentication that does not include SMS",
+          "runtime": "cel@v0",
+          "assert_mode": "OR",
+          "controls": [
+            {
+              "class": "NIST-800-53",
+              "id": "AC-07"
+            }
+          ]
+        },
+        "context": {
+          "author": "Puerco",
+          "count": 1,
+          "shopping_list": ["soup", "apples"]
+        },
+        "subject": {
+          "name": "myapp-binary",
+          "digest": {
+            "sha256": "08bdfa07a9a1404eb8929f45896c715a3c2b8e6f4d7c9a1b2e3f4a5b6c7d8e9f"
+          }
+        }
+      }
+    ]
+  }
+}
