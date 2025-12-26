@@ -94,3 +94,7 @@ jobs:
         run: |
           # Inspect the resulting bundle:
           bnd inspect ampel.intoto.json 
+          # Extract the in-toto attestation from the bundle
+          bnd extract attestation ampel.intoto.json
+          # Extract the predicate data from the bundle
+          bnd extract predicate ampel.intoto.json
