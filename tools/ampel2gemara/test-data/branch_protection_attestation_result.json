@@ -1,0 +1,365 @@
+{
+  "predicateType": "https://carabiner.dev/ampel/results/v0.0.1",
+  "predicate": {
+    "date_end": "2025-12-26T05:20:26.315Z",
+    "date_start": "2025-12-26T05:20:26.306Z",
+    "meta": {
+      "enforce": "ON",
+      "frameworks": [
+        {
+          "id": "MyOrg-Branch-Protection-Rules",
+          "name": "MyOrg Branch Protection Rules"
+        }
+      ],
+      "origin": {
+        "digest": {
+          "sha256": "ada83e2afb47feea2c5b358514ea9ecde07f8875fac253e315b4a72f4982fd8c",
+          "sha512": "31eda3e445bf3851873ecdb9a4b08e0bd4b03c4ab612f8c439fedd45cd946751ff25a3bc83d9a12ddee4006bce80ebfda27f711a35e84914bc4fd9e3ad4880c5"
+        },
+        "name": "My Policy for Branch Protection"
+      }
+    },
+    "policy_set": {
+      "id": "My Policy for Branch Protection"
+    },
+    "results": [
+      {
+        "context": {},
+        "date_end": "2025-12-26T05:20:26.313Z",
+        "date_start": "2025-12-26T05:20:26.310Z",
+        "eval_results": [
+          {
+            "date": "2025-12-26T05:20:26.313Z",
+            "error": {
+              "guidance": "Create a branch ruleset protecting your default branch and enable \"Require signed commits\"",
+              "message": "Signed commits are not required before merging"
+            },
+            "id": "01",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "meta": {
+          "assert_mode": "AND",
+          "controls": [
+            {
+              "class": "ORG",
+              "framework": "MYORG",
+              "id": "02"
+            }
+          ],
+          "description": "Require signed commits before merging",
+          "enforce": "ON"
+        },
+        "policy": {
+          "id": "MYORG-02"
+        },
+        "status": "FAIL",
+        "subject": {
+          "digest": {
+            "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+          }
+        }
+      },
+      {
+        "context": {},
+        "date_end": "2025-12-26T05:20:26.313Z",
+        "date_start": "2025-12-26T05:20:26.311Z",
+        "eval_results": [
+          {
+            "assessment": {
+              "message": "Branch deletion is disabled on default branch"
+            },
+            "date": "2025-12-26T05:20:26.313Z",
+            "id": "02",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "PASS"
+          }
+        ],
+        "meta": {
+          "assert_mode": "AND",
+          "controls": [
+            {
+              "class": "AC",
+              "framework": "OSPS",
+              "id": "03"
+            }
+          ],
+          "description": "VCS MUST treat main branch deletion as a sensitive activity and require explicit confirmation of intent",
+          "enforce": "ON"
+        },
+        "policy": {
+          "id": "OSPS-AC-03.02"
+        },
+        "status": "PASS",
+        "subject": {
+          "digest": {
+            "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+          }
+        }
+      },
+      {
+        "context": {},
+        "date_end": "2025-12-26T05:20:26.313Z",
+        "date_start": "2025-12-26T05:20:26.310Z",
+        "eval_results": [
+          {
+            "date": "2025-12-26T05:20:26.313Z",
+            "error": {
+              "guidance": "Create a branch ruleset protecting your default branch and enable \"Require review from Code Owners\"",
+              "message": "CODEOWNER approval is not required before merging"
+            },
+            "id": "01",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "meta": {
+          "assert_mode": "AND",
+          "controls": [
+            {
+              "class": "ORG",
+              "framework": "MYORG",
+              "id": "01"
+            }
+          ],
+          "description": "Require CODEOWNER approval before merging",
+          "enforce": "ON"
+        },
+        "policy": {
+          "id": "MYORG-01"
+        },
+        "status": "FAIL",
+        "subject": {
+          "digest": {
+            "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+          }
+        }
+      },
+      {
+        "context": {},
+        "date_end": "2025-12-26T05:20:26.314Z",
+        "date_start": "2025-12-26T05:20:26.310Z",
+        "eval_results": [
+          {
+            "date": "2025-12-26T05:20:26.313Z",
+            "error": {
+              "guidance": "Create a branch ruleset protecting your default branch and enable \"Restrict updates\"",
+              "message": "Direct pushes are enabled so PRs are not required."
+            },
+            "id": "01",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "FAIL"
+          },
+          {
+            "assessment": {
+              "message": "Force pushing is disabled in default branch."
+            },
+            "date": "2025-12-26T05:20:26.314Z",
+            "id": "02",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "PASS"
+          },
+          {
+            "date": "2025-12-26T05:20:26.314Z",
+            "error": {
+              "guidance": "Ensure the pull request rule requires at least one approving review.",
+              "message": "PRs can be merged without peer review."
+            },
+            "id": "03",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "meta": {
+          "assert_mode": "AND",
+          "controls": [
+            {
+              "class": "QA",
+              "framework": "OSPS",
+              "id": "07"
+            }
+          ],
+          "description": "VCS MUST require at least one non-author approval of changes to the primary branch",
+          "enforce": "ON"
+        },
+        "policy": {
+          "id": "OSPS-QA-07.01"
+        },
+        "status": "FAIL",
+        "subject": {
+          "digest": {
+            "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+          }
+        }
+      },
+      {
+        "context": {},
+        "date_end": "2025-12-26T05:20:26.315Z",
+        "date_start": "2025-12-26T05:20:26.314Z",
+        "eval_results": [
+          {
+            "date": "2025-12-26T05:20:26.314Z",
+            "error": {
+              "guidance": "Create a branch ruleset protecting your default branch and enable \"Dismiss stale pull request approvals when new commits are pushed\"",
+              "message": "Approvals are not dismissed when new commits are pushed."
+            },
+            "id": "01",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "FAIL"
+          },
+          {
+            "date": "2025-12-26T05:20:26.315Z",
+            "error": {
+              "guidance": "Create a branch ruleset protecting your default branch and enable \"Require approval of the most recent reviewable push\"",
+              "message": "The most recent reviewable push is not approved by someone other than the person who pushed it."
+            },
+            "id": "02",
+            "output": {},
+            "statements": [
+              {
+                "attestation": {
+                  "digest": {
+                    "sha256": "6e8d0a54cf15bd93b178d99c3d16d409eba74a1c924850e17dbe3c431b69344d",
+                    "sha512": "66a2d902daca733720a6efb747671016edc5d37cea4c637decabbe91d4fd8b3ac084cbc681e2a52c7081b1a4a41e89cbdaa06bab7a8a87dfd21af39a5b4ab22f"
+                  },
+                  "name": "jsonl:attestations.jsonl#0",
+                  "uri": "jsonl:attestations.jsonl#0"
+                },
+                "type": "http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"
+              }
+            ],
+            "status": "FAIL"
+          }
+        ],
+        "meta": {
+          "assert_mode": "AND",
+          "controls": [
+            {
+              "class": "ORG",
+              "framework": "MYORG",
+              "id": "03"
+            }
+          ],
+          "description": "Ensure approvals are updated and compliant when changes are made",
+          "enforce": "ON"
+        },
+        "policy": {
+          "id": "MYORG-03"
+        },
+        "status": "FAIL",
+        "subject": {
+          "digest": {
+            "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+          }
+        }
+      }
+    ],
+    "status": "FAIL",
+    "subject": {
+      "digest": {
+        "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+      }
+    }
+  },
+  "_type": "",
+  "type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "digest": {
+        "sha256": "e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5"
+      }
+    }
+  ]
+}

@@ -30,6 +30,13 @@ def calculate_duration_ms(start: str, end: str) -> int:
 
 def map_subject(ampel_subject: Dict[str, Any]) -> Dict[str, Any]:
     """Map ampel subject to Gemara subject format."""
+    if not ampel_subject:
+        return {
+            'name': 'unknown',
+            'type': 'artifact',
+            'identifiers': []
+        }
+
     identifiers = []
     for algo, value in ampel_subject.get('digest', {}).items():
         identifiers.append({
@@ -38,7 +45,7 @@ def map_subject(ampel_subject: Dict[str, Any]) -> Dict[str, Any]:
         })
 
     return {
-        'name': ampel_subject.get('name', ''),
+        'name': ampel_subject.get('name', 'unknown'),
         'type': 'artifact',
         'identifiers': identifiers
     }
@@ -185,6 +192,15 @@ def convert_ampel_to_gemara(ampel_data: Dict[str, Any]) -> List[Dict[str, Any]]:
     elif 'results' in ampel_data:
         for result in ampel_data.get('results', []):
             evaluations.append(map_result_to_evaluation(result))
+
+    # Handle raw predicate format (predicateType at top level)
+    elif 'predicateType' in ampel_data and 'predicate' in ampel_data:
+        predicate = ampel_data.get('predicate', {})
+        if 'results' in predicate:
+            for result in predicate.get('results', []):
+                evaluations.append(map_result_to_evaluation(result))
+        elif 'policy' in predicate:
+            evaluations.append(map_result_to_evaluation(predicate))
 
     return evaluations
 

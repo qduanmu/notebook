@@ -99,6 +99,14 @@ type Context struct {
 }
 
 func mapSubject(subject *intoto.ResourceDescriptor) Subject {
+	if subject == nil {
+		return Subject{
+			Name:        "unknown",
+			Type:        "artifact",
+			Identifiers: []Identifier{},
+		}
+	}
+
 	identifiers := []Identifier{}
 	for algo, value := range subject.GetDigest() {
 		identifiers = append(identifiers, Identifier{
@@ -107,8 +115,13 @@ func mapSubject(subject *intoto.ResourceDescriptor) Subject {
 		})
 	}
 
+	name := subject.GetName()
+	if name == "" {
+		name = "unknown"
+	}
+
 	return Subject{
-		Name:        subject.GetName(),
+		Name:        name,
 		Type:        "artifact",
 		Identifiers: identifiers,
 	}
@@ -280,6 +293,28 @@ func convertAmpelToGemara(data []byte) (*GemaraEvaluation, error) {
 		// Try to parse as ResultSet
 		var resultSet papi.ResultSet
 		if err := protojson.Unmarshal(predicateData, &resultSet); err == nil {
+			for _, result := range resultSet.GetResults() {
+				evaluations = append(evaluations, mapResult(result))
+			}
+		} else {
+			// Try as single Result
+			var result papi.Result
+			if err := protojson.Unmarshal(predicateData, &result); err == nil {
+				evaluations = append(evaluations, mapResult(&result))
+			} else {
+				return nil, fmt.Errorf("parsing predicate as Result or ResultSet: %w", err)
+			}
+		}
+	} else if predicateType, ok := statement["predicateType"].(string); ok && predicateType != "" {
+		// Handle raw predicate format (predicateType at top level)
+		predicateData, err := json.Marshal(statement["predicate"])
+		if err != nil {
+			return nil, fmt.Errorf("extracting predicate: %w", err)
+		}
+
+		// Try to parse as ResultSet
+		var resultSet papi.ResultSet
+		if err := protojson.Unmarshal(predicateData, &resultSet); err == nil && len(resultSet.GetResults()) > 0 {
 			for _, result := range resultSet.GetResults() {
 				evaluations = append(evaluations, mapResult(result))
 			}

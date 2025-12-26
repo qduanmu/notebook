@@ -1,0 +1,208 @@
+gemara_version: '1.0'
+layer: 4
+type: evaluation
+evaluations:
+- evaluation:
+    id: ampel-eval-2025-12-26T052026313
+    timestamp: '2025-12-26T05:20:26.313Z'
+    duration_ms: 3
+    evaluator: ampel
+    evaluator_version: '1.0'
+  subject:
+    name: unknown
+    type: artifact
+    identifiers:
+    - type: sha256
+      value: e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5
+  assessment:
+    status: FAIL
+    summary: Signed commits are not required before merging
+  policy:
+    id: MYORG-02
+    version: ''
+    description: Require signed commits before merging
+  controls:
+  - id: '02'
+    framework: ORG
+    status: FAIL
+  findings:
+  - id: '01'
+    status: FAIL
+    timestamp: '2025-12-26T05:20:26.313Z'
+    description: Signed commits are not required before merging
+    error:
+      message: Signed commits are not required before merging
+      remediation: Create a branch ruleset protecting your default branch and enable
+        "Require signed commits"
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+- evaluation:
+    id: ampel-eval-2025-12-26T052026313
+    timestamp: '2025-12-26T05:20:26.313Z'
+    duration_ms: 2
+    evaluator: ampel
+    evaluator_version: '1.0'
+  subject:
+    name: unknown
+    type: artifact
+    identifiers:
+    - type: sha256
+      value: e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5
+  assessment:
+    status: PASS
+    summary: VCS MUST treat main branch deletion as a sensitive activity and require
+      explicit confirmation of intent
+  policy:
+    id: OSPS-AC-03.02
+    version: ''
+    description: VCS MUST treat main branch deletion as a sensitive activity and require
+      explicit confirmation of intent
+  controls:
+  - id: '03'
+    framework: AC
+    status: PASS
+  findings:
+  - id: '02'
+    status: PASS
+    timestamp: '2025-12-26T05:20:26.313Z'
+    description: Branch deletion is disabled on default branch
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+- evaluation:
+    id: ampel-eval-2025-12-26T052026313
+    timestamp: '2025-12-26T05:20:26.313Z'
+    duration_ms: 3
+    evaluator: ampel
+    evaluator_version: '1.0'
+  subject:
+    name: unknown
+    type: artifact
+    identifiers:
+    - type: sha256
+      value: e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5
+  assessment:
+    status: FAIL
+    summary: CODEOWNER approval is not required before merging
+  policy:
+    id: MYORG-01
+    version: ''
+    description: Require CODEOWNER approval before merging
+  controls:
+  - id: '01'
+    framework: ORG
+    status: FAIL
+  findings:
+  - id: '01'
+    status: FAIL
+    timestamp: '2025-12-26T05:20:26.313Z'
+    description: CODEOWNER approval is not required before merging
+    error:
+      message: CODEOWNER approval is not required before merging
+      remediation: Create a branch ruleset protecting your default branch and enable
+        "Require review from Code Owners"
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+- evaluation:
+    id: ampel-eval-2025-12-26T052026314
+    timestamp: '2025-12-26T05:20:26.314Z'
+    duration_ms: 4
+    evaluator: ampel
+    evaluator_version: '1.0'
+  subject:
+    name: unknown
+    type: artifact
+    identifiers:
+    - type: sha256
+      value: e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5
+  assessment:
+    status: FAIL
+    summary: Direct pushes are enabled so PRs are not required.
+  policy:
+    id: OSPS-QA-07.01
+    version: ''
+    description: VCS MUST require at least one non-author approval of changes to the
+      primary branch
+  controls:
+  - id: '07'
+    framework: QA
+    status: FAIL
+  findings:
+  - id: '01'
+    status: FAIL
+    timestamp: '2025-12-26T05:20:26.313Z'
+    description: Direct pushes are enabled so PRs are not required.
+    error:
+      message: Direct pushes are enabled so PRs are not required.
+      remediation: Create a branch ruleset protecting your default branch and enable
+        "Restrict updates"
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+  - id: '02'
+    status: PASS
+    timestamp: '2025-12-26T05:20:26.314Z'
+    description: Force pushing is disabled in default branch.
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+  - id: '03'
+    status: FAIL
+    timestamp: '2025-12-26T05:20:26.314Z'
+    description: PRs can be merged without peer review.
+    error:
+      message: PRs can be merged without peer review.
+      remediation: Ensure the pull request rule requires at least one approving review.
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+- evaluation:
+    id: ampel-eval-2025-12-26T052026315
+    timestamp: '2025-12-26T05:20:26.315Z'
+    duration_ms: 1
+    evaluator: ampel
+    evaluator_version: '1.0'
+  subject:
+    name: unknown
+    type: artifact
+    identifiers:
+    - type: sha256
+      value: e2042f09ddcf81b05e07fd336156b453a893d43cbf6a0ae97301669012a722d5
+  assessment:
+    status: FAIL
+    summary: Approvals are not dismissed when new commits are pushed.
+  policy:
+    id: MYORG-03
+    version: ''
+    description: Ensure approvals are updated and compliant when changes are made
+  controls:
+  - id: '03'
+    framework: ORG
+    status: FAIL
+  findings:
+  - id: '01'
+    status: FAIL
+    timestamp: '2025-12-26T05:20:26.314Z'
+    description: Approvals are not dismissed when new commits are pushed.
+    error:
+      message: Approvals are not dismissed when new commits are pushed.
+      remediation: Create a branch ruleset protecting your default branch and enable
+        "Dismiss stale pull request approvals when new commits are pushed"
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
+  - id: '02'
+    status: FAIL
+    timestamp: '2025-12-26T05:20:26.315Z'
+    description: The most recent reviewable push is not approved by someone other
+      than the person who pushed it.
+    error:
+      message: The most recent reviewable push is not approved by someone other than
+        the person who pushed it.
+      remediation: Create a branch ruleset protecting your default branch and enable
+        "Require approval of the most recent reviewable push"
+    evidence:
+    - type: http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml
+      digest: ''
