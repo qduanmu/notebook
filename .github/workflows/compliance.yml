@@ -60,10 +60,10 @@ jobs:
           echo "sha256=$SHA256" >> $GITHUB_OUTPUT
 
           # Test
-          cat attestations/branch-rules.intoto.json
+          cat attestations/branch-rules.bundle.json
 
           # Clean up the files that are no longer needed
-          # rm -f attestations/branch-rules.intoto.json
+          rm -f attestations/branch-rules.intoto.json
 
       - name: Pack Attestations
         run: |
@@ -89,3 +89,5 @@ jobs:
           policy: "git+https://github.com/marcusburghardt/github-standards#ampel_policies/branch-protection-rules.json"
           attest: true
           fail: false
+        run: |
+          cat ampel.intoto.json
