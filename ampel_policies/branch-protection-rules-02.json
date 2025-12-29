@@ -1,0 +1,48 @@
+{
+  "id": "branch-protection-basic",
+  "version": "v1.0.0",
+  "meta": {
+    "description": "Basic branch protection requirements for main branch",
+    "runtime": "cel@v14.0",
+    "assert_mode": "AND"
+  },
+  "predicates": {
+    "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
+  },
+  "tenets": [
+    {
+      "runtime": "cel@v14.0",
+      "description": "Verify branch protection predicates are loaded",
+      "code": "size(predicates) > 0",
+      "predicates": {
+        "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
+      }
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Require signed commits before merging",
+      "code": "predicates[0].data.require_signed_commits == true",
+      "outputs": {
+        "signed_commits_enabled": {
+          "code": "predicates[0].data.require_signed_commits"
+        }
+      }
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Disable direct pushes to main branch",
+      "code": "predicates[0].data.allow_direct_pushes == false",
+      "outputs": {
+        "direct_pushes_allowed": {
+          "code": "predicates[0].data.allow_direct_pushes"
+        }
+      }
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Disable force pushes to main branch",
+      "code": "predicates[0].data.allow_force_pushes == false"
+    }
+  ]
+}
+

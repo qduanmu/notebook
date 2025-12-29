@@ -1,0 +1,66 @@
+{
+  "id": "branch-protection-comprehensive",
+  "version": "v1.0.0",
+  "meta": {
+    "description": "Comprehensive branch protection policy for production repositories",
+    "runtime": "cel@v14.0",
+    "assert_mode": "AND",
+    "controls": [
+      {
+        "class": "AC",
+        "framework": "OSPS",
+        "id": "03"
+      }
+    ]
+  },
+  "predicates": {
+    "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
+  },
+  "tenets": [
+    {
+      "runtime": "cel@v14.0",
+      "description": "Branch protection attestation must be present",
+      "code": "size(predicates) > 0"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Require signed commits before merging",
+      "code": "predicates[0].data.require_signed_commits == true"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Branch deletion must be disabled on default branch",
+      "code": "predicates[0].data.allow_deletions == false"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Require CODEOWNER approval if enabled in context",
+      "code": "predicates[0].data.require_code_owner_reviews == true"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Direct pushes must be disabled to require PRs",
+      "code": "predicates[0].data.allow_direct_pushes == false"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Force pushing must be disabled on default branch",
+      "code": "predicates[0].data.allow_force_pushes == false"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Require minimum number of approving reviews",
+      "code": "has(predicates[0].data.required_approving_review_count) && predicates[0].data.required_approving_review_count >= 2"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Stale approvals must be dismissed when new commits are pushed",
+      "code": "predicates[0].data.dismiss_stale_reviews == true"
+    },
+    {
+      "runtime": "cel@v14.0",
+      "description": "Most recent push must be approved by someone other than the pusher",
+      "code": "predicates[0].data.require_last_push_approval == true"
+    }
+  ]
+}
