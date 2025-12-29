@@ -3,7 +3,7 @@
     "meta": {
         "frameworks": [
             { "id": "MyOrg-Branch-Protection-Rules", "name": "MyOrg Branch Protection Rules" }
-        ],
+        ]
     },
     "policies": [
         {
@@ -77,8 +77,7 @@
                         "message": "Branch delete protection is not enabled",
                         "guidance": "Create a branch ruleset protecting your default branch and enable \"Restrict deletions\""
                     }
-                },
-
+                }
             ]
         },
         {
@@ -102,9 +101,9 @@
                         "message": "CODEOWNER approval is not required before merging",
                         "guidance": "Create a branch ruleset protecting your default branch and enable \"Require review from Code Owners\""
                     }
-                },
+                }
             ]
-        }
+        },
         {
             "id": "MYORG-02",
             "meta": {
@@ -126,7 +125,7 @@
                         "message": "Signed commits are not required before merging",
                         "guidance": "Create a branch ruleset protecting your default branch and enable \"Require signed commits\""
                     }
-                },
+                }
             ]
         },
         {
