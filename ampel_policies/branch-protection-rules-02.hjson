@@ -1,0 +1,165 @@
+{
+    id: branch-protection-comprehensive
+    version: v1.0.0
+
+    meta: {
+        description: "Comprehensive branch protection policy for production repositories"
+        runtime: cel@v14.0
+        assert_mode: AND
+
+        controls: [
+            {
+                framework: "OSPS"
+                class: "AC"
+                id: "03"
+            }
+        ]
+    }
+
+    identities: [
+        {
+            sigstore: {
+                issuer: https://token.actions.githubusercontent.com
+                identity: ".*@example\\.com"
+                mode: regexp
+            }
+        }
+    ]
+
+    // Context values for flexible configuration
+    context: {
+        min_reviewers: {
+            type: int
+            required: true
+            default: 1
+        }
+
+        branch_name: {
+            type: string
+            required: true
+            default: "main"
+        }
+
+        require_codeowner_review: {
+            type: bool
+            required: false
+            default: true
+        }
+    }
+
+    predicates: {
+        types: ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
+    }
+
+    tenets: [
+        {
+            // Tenet 1: Verify predicates loaded
+            runtime: cel@v14.0
+            description: "Branch protection attestation must be present"
+            code: "size(predicates) > 0"
+        }
+
+        {
+            // Tenet 2: Signed commits required
+            runtime: cel@v14.0
+            description: "Require signed commits before merging"
+            code: "predicates[0].data.require_signed_commits == true"
+
+            outputs: {
+                signed_commits_enabled: {
+                    code: "predicates[0].data.require_signed_commits"
+                }
+                branch_checked: {
+                    code: "predicates[0].data.branch_name"
+                }
+            }
+        }
+
+        {
+            // Tenet 3: Branch deletion disabled
+            runtime: cel@v14.0
+            description: "Branch deletion must be disabled on default branch"
+            code: "predicates[0].data.allow_deletions == false"
+        }
+
+        {
+            // Tenet 4: CODEOWNER approval required (context-aware)
+            runtime: cel@v14.0
+            description: "Require CODEOWNER approval if enabled in context"
+            code: '''
+                !context.require_codeowner_review ||
+                predicates[0].data.require_code_owner_reviews == true
+            '''
+
+            outputs: {
+                codeowner_review_required: {
+                    code: "predicates[0].data.require_code_owner_reviews"
+                }
+            }
+        }
+
+        {
+            // Tenet 5: Direct pushes disabled (PRs required)
+            runtime: cel@v14.0
+            description: "Direct pushes must be disabled to require PRs"
+            code: "predicates[0].data.allow_direct_pushes == false"
+        }
+
+        {
+            // Tenet 6: Force pushes disabled
+            runtime: cel@v14.0
+            description: "Force pushing must be disabled on default branch"
+            code: "predicates[0].data.allow_force_pushes == false"
+        }
+
+        {
+            // Tenet 7: Minimum reviewers (context-aware)
+            runtime: cel@v14.0
+            description: "Require minimum number of approving reviews"
+            code: '''
+                has(predicates[0].data.required_approving_review_count) &&
+                predicates[0].data.required_approving_review_count >= context.min_reviewers
+            '''
+
+            outputs: {
+                required_reviewers: {
+                    code: "predicates[0].data.required_approving_review_count"
+                }
+                configured_minimum: {
+                    code: "context.min_reviewers"
+                }
+            }
+        }
+
+        {
+            // Tenet 8: Dismiss stale approvals
+            runtime: cel@v14.0
+            description: "Stale approvals must be dismissed when new commits are pushed"
+            code: "predicates[0].data.dismiss_stale_reviews == true"
+        }
+
+        {
+            // Tenet 9: Require approval of most recent push
+            runtime: cel@v14.0
+            description: "Most recent push must be approved by someone other than the pusher"
+            code: "predicates[0].data.require_last_push_approval == true"
+        }
+
+        {
+            // Tenet 10: Verify correct branch is protected
+            runtime: cel@v14.0
+            description: "Verify the protected branch matches expected branch name"
+            code: "predicates[0].data.branch_name == context.branch_name"
+
+            outputs: {
+                protected_branch: {
+                    code: "predicates[0].data.branch_name"
+                }
+                expected_branch: {
+                    code: "context.branch_name"
+                }
+            }
+        }
+    ]
+}
+
