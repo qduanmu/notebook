@@ -173,6 +173,21 @@
                         "message": "Approvals are not dismissed when new commits are pushed.",
                         "guidance": "Create a branch ruleset protecting your default branch and enable \"Dismiss stale pull request approvals when new commits are pushed\""
                     }
+                },
+                {
+                    "id": "02",
+                    "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"required_signatures\") : false",
+
+                    "predicates": {
+                        "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
+                    },
+                    "assessment": {
+                        "message": "Signed commits are required before merging"
+                    },
+                    "error": {
+                        "message": "Signed commits are not required before merging",
+                        "guidance": "Create a branch ruleset protecting your default branch and enable \"Require signed commits\""
+                    }
                 }
             ]
         }
