@@ -86,7 +86,7 @@ jobs:
         with:
           subject: sha256:${{ steps.attestation.outputs.sha256 }}
           collector: "jsonl:attestations.jsonl"
-          policy: "git+https://github.com/qduanmu/notebook#ampel_policies/branch-protection-rules-04.json"
+          policy: "git+https://github.com/qduanmu/notebook#ampel_policies/branch-protection-rules-02.json"
           attest: true
           fail: false
 
