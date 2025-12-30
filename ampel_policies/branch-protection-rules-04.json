@@ -1,20 +1,16 @@
 {
     "id": "My Policy for Branch Protection",
-    "version": "v1.0.0",
     "meta": {
-        "runtime": "cel@v14.0",
-        "assert_mode": "AND",
         "frameworks": [
             { "id": "MyOrg-Branch-Protection-Rules", "name": "MyOrg Branch Protection Rules" }
         ]
-    },
-    "predicates": {
-      "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
     },
     "policies": [
         {
             "id": "OSPS-QA-07.01",
             "meta": {
+                "runtime": "cel@v14.0",
+                "assert_mode": "OR",
                 "description": "VCS MUST require at least one non-author approval of changes to the primary branch",
                 "controls": [ { "framework": "OSPS", "class": "QA", "id": "07" } ]
             },
