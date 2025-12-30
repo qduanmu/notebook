@@ -166,25 +166,6 @@
                     }
                 }
             ]
-        },
-        {
-            "id": "MYORG-04",
-            "meta": {
-                "description": "testing",
-                "controls": [ { "framework": "MYORG", "class": "ORG", "id": "04" } ]
-            },
-            "tenets": [
-                {
-                    "id": "01",
-                    "description": "Require signed commits before merging",
-                    "code": "predicates[0].data.require_signed_commits == true",
-                    "outputs": {
-                        "signed_commits_enabled": {
-                            "code": "predicates[0].data.require_signed_commits"
-                        }
-                    }
-                }
-            ]
         }
     ]
 }
