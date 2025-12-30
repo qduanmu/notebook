@@ -113,7 +113,7 @@
                     }
                 },
                 {
-                    "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"required_signatures\") : false",
+                    "code": "predicates[0].data.require_signed_commits == true",
 
                     "predicates": {
                         "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
