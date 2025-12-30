@@ -14,21 +14,18 @@
             },
             "tenets": [
                 {
-                    "id": "01",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"update\") : false",
                     "predicates": {
                         "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
                     }
                 },
                 {
-                    "id": "02",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"non_fast_forward\") : false",
                     "predicates": {
                         "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
                     }
                 },
                 {
-                    "id": "03",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"pull_request\" && rule.parameters.required_approving_review_count >= 1) : false",
                     "predicates": {
                         "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
@@ -44,7 +41,6 @@
             },
             "tenets": [
                 {
-                    "id": "02",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"deletion\") : false",
                     "predicates": {
                         "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
@@ -60,7 +56,6 @@
             },
             "tenets": [
                 {
-                    "id": "01",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"pull_request\" && rule.parameters.require_code_owner_review == true) : false",
 
                     "predicates": {
@@ -77,7 +72,6 @@
             },
             "tenets": [
                 {
-                    "id": "01",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"required_signatures\") : false",
 
                     "predicates": {
@@ -94,7 +88,6 @@
             },
             "tenets": [
                 {
-                    "id": "01",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"pull_request\" && rule.parameters.dismiss_stale_reviews_on_push == true) : false",
 
                     "predicates": {
@@ -111,7 +104,6 @@
             },
             "tenets": [
                 {
-                    "id": "01",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"pull_request\" && rule.parameters.dismiss_stale_reviews_on_push == true) : false",
 
                     "predicates": {
@@ -119,7 +111,6 @@
                     }
                 },
                 {
-                    "id": "02",
                     "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"required_signatures\") : false",
 
                     "predicates": {
