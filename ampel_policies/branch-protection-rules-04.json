@@ -1,9 +1,15 @@
 {
     "id": "My Policy for Branch Protection",
+    "version": "v1.0.0",
     "meta": {
+        "runtime": "cel@v14.0",
+        "assert_mode": "AND",
         "frameworks": [
             { "id": "MyOrg-Branch-Protection-Rules", "name": "MyOrg Branch Protection Rules" }
         ]
+    },
+    "predicates": {
+      "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
     },
     "policies": [
         {
