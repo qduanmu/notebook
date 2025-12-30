@@ -151,6 +151,30 @@
                     }
                 }
             ]
+        },
+        {
+            "id": "MYORG-04",
+            "meta": {
+                "description": "Ensure approvals are updated and compliant when changes are made",
+                "controls": [ { "framework": "MYORG", "class": "ORG", "id": "04" } ]
+            },
+            "tenets": [
+                {
+                    "id": "01",
+                    "code": "has(predicates[0].data.values) ? predicates[0].data.values.exists(rule, rule.type == \"pull_request\" && rule.parameters.dismiss_stale_reviews_on_push == true) : false",
+
+                    "predicates": {
+                        "types": ["http://github.com/carabiner-dev/snappy/specs/branch-rules.yaml"]
+                    },
+                    "assessment": {
+                        "message": "New, reviewable commits pushed will dismiss previous PR review approvals."
+                    },
+                    "error": {
+                        "message": "Approvals are not dismissed when new commits are pushed.",
+                        "guidance": "Create a branch ruleset protecting your default branch and enable \"Dismiss stale pull request approvals when new commits are pushed\""
+                    }
+                }
+            ]
         }
     ]
 }
