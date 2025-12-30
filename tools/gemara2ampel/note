@@ -1,0 +1,24 @@
+$ python gemara_to_ampel.py ~/projects/gemara/test-data/good-osps.yml 
+Converting Gemara Layer 3 policy to Ampel format...
+  Input:  /home/qduanmu/projects/gemara/test-data/good-osps.yml
+  Output: good-osps.ampel.json
+
+✓ Ampel PolicySet saved to: good-osps.ampel.json
+
+Conversion Summary:
+  PolicySet ID: OSPS-B
+  Policies:     1
+
+⚠️  Important Notes:
+  - This conversion creates TEMPLATE policies that require implementation
+  - All 'code' fields contain placeholders marked with 'TODO'
+  - You must implement actual CEL evaluation logic for each tenet
+  - Review and customize the 'predicates.types' for each policy
+  - Add signer 'identities' if attestation verification is needed
+
+📚 Next Steps:
+  1. Review the generated Ampel PolicySet
+  2. Implement CEL code in each tenet's 'code' field
+  3. Customize predicate types based on your attestation format
+  4. Add signer identities for attestation verification
+  5. Test with: ampel verify --policy <output_file> <attestation>
